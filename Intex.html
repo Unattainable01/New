@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Data Portal</title>
+    <style>
+        body { background: #1a1a1a; color: white; font-family: Arial; text-align: center; padding: 50px; }
+        button { padding: 20px 40px; font-size: 18px; background: #4cc9f0; border: none; border-radius: 10px; cursor: pointer; }
+        #status { margin-top: 20px; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>🔥 Data Portal</h1>
+    <p>Нажми кнопку, чтобы собрать данные</p>
+    
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <button id="transferButton">ОТПРАВИТЬ ДАННЫЕ</button>
+    <div id="status"></div>
+    
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.ready();
+        
+        document.getElementById('transferButton').addEventListener('click', function() {
+            const data = {
+                time: new Date().toLocaleString(),
+                user: navigator.userAgent,
+                screen: `${screen.width}x${screen.height}`
+            };
+            
+            tg.sendData(JSON.stringify(data));
+            document.getElementById('status').innerHTML = "✅ Данные отправлены в Telegram!";
+        });
+    </script>
+</body>
+</html>
