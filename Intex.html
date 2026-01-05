@@ -1,25 +1,25 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Portal</title>
-    <style>
-        body { background: #1a1a1a; color: white; text-align: center; padding: 50px; }
-        button { padding: 20px; font-size: 18px; background: #4cc9f0; border: none; border-radius: 10px; cursor: pointer; }
-    </style>
+<meta charset="UTF-8">
+<title>Portal</title>
+<style>
+body { background: #1a1a1a; color: white; text-align: center; padding: 50px; }
+button { padding: 20px; font-size: 18px; background: #4cc9f0; border: none; border-radius: 10px; cursor: pointer; }
+</style>
 </head>
 <body>
-    <h1>🔥 Data Portal</h1>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <button id="btn">ОТПРАВИТЬ ДАННЫЕ</button>
-    <div id="status"></div>
-    <script>
-        const tg = window.Telegram.WebApp; tg.ready();
-        document.getElementById('btn').onclick = () => {
-            tg.sendData(JSON.stringify({time: new Date().toLocaleString(), user: navigator.userAgent}));
-            document.getElementById('status').innerText = "✅ Отправлено!";
-        };
-    </script>
+<h1>🔥 Data Portal</h1>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<button id="btn">ОТПРАВИТЬ ДАННЫЕ</button>
+<div id="status"></div>
+<script>
+const tg = window.Telegram.WebApp; tg.ready();
+document.getElementById('btn').onclick = () => {
+tg.sendData(JSON.stringify({time: new Date().toLocaleString(), user: navigator.userAgent}));
+document.getElementById('status').innerText = "Отправлено!";
+};
+</script>
 </body>
 </html>
-
